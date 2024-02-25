@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de preço final com ICMS 19%</title>
+    <link rel="stylesheet" href="/Style.css">
+</head>
+
+<body>
+    <div id="calculadora">
+        <h1>Calculadora de preço final com ICMS de 19%</h1>
+        <label for="preco-custo">Preço de custo:</label>
+        <input type="number" id="preco-custo" name="preco-custo" placeholder="Insira o preço de custo do produto">
+        <label for="taxa-icms">Taxa de ICMS (19%):</label>
+        <input type="number" id="taxa-icms" name="taxa-icms" placeholder="Insira a taxa de 19% de ICMS">
+        <button id="calcular">Calcular</button>
+        <div id="resultado">
+            <p>Preço final: R$<span id="preco-final"></span></p>
+        </div>
+    </div>
+
+    <script src="/Index.js"></script>
+</body>
+
+</html>
