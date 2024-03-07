@@ -1,9 +1,9 @@
-//para validar um número
+//para validar um numero
 function isNumber(value) {
     return !isNaN(parseFloat(value)) && isFinite(value)
   }
   
-  //para obter os valores dos inputs do formulário
+  //para obter os valores dos inputs do formulario
   function obterValoresFormulario() {
     const montanteElement = document.getElementById("montante")
     const taxaJurosElement = document.getElementById("taxaJuros")
@@ -31,7 +31,7 @@ function isNumber(value) {
   
     resultadoElement.innerHTML = ""
   
-    //informações gerais
+    //informacoes gerais
     const informacoesElement = document.createElement("div")
     informacoesElement.classList.add("informacoes")
   

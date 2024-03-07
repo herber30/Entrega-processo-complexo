@@ -17,25 +17,26 @@ body {
   margin: 1rem;
   width: 85%;
   max-width: 400px;
-  background-color: #fff;
+  background: rgb(135, 103, 152);
+  background: radial-gradient(circle, rgba(135, 103, 152, 0.5795246800731262) 0%, rgba(75, 137, 208, 1) 83%);
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .container form {
-  width: 85%;
+  width: 80%;
 }
 
 .container label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .container input,
 .container button {
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
-  border: 1px solid #ccc;
+  border: 2px solid #567ce5;
   border-radius: 5px;
   width: 100%;
 }
@@ -48,5 +49,5 @@ body {
 }
 
 .container button:hover {
-  background-color: #c6f3bf;
+  background-color: #6767de;
 }
