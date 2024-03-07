@@ -75,4 +75,8 @@ function isNumber(value) {
     }
     exibirResultados(parcelasSimples, montante, taxaJuros, tempoEmprestimo)
   }
+
+  //utilizei algumas referencias para compor o codigo em sites como
+  https://www.w3schools.com, e series de videos como: https://www.youtube.com/watch?v=aRergQRF3lw
+
   
