@@ -2,7 +2,7 @@
 const LoanSimulator = {
     // Método para validar se um valor é numérico
     isNumber(value) {
-        return !isNaN(parseFloat(value)) && isFinite(value);
+        return !isNaN(parseFloat(value)) && isFinite(value)
     },
 
     // Método para obter os valores do formulário
