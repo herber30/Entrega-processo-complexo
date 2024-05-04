@@ -2,7 +2,7 @@
 const LoanSimulator = {
     // Método para validar se um valor é numérico
     isNumber(value) {
-        return !isNaN(parseFloat(value)) && isFinite(value)
+        return !isNaN(parseFloat(value)) && isFinite(value);
     },
 
     // Método para obter os valores do formulário
@@ -79,14 +79,7 @@ const LoanSimulator = {
     }
 };
 
-// Esperar que o DOM seja carregado
-document.addEventListener("DOMContentLoaded", function() {
-    // Associar função ao botão de simular
-    document.getElementById("calculate").addEventListener("click", function() {
-        LoanSimulator.calcular();
-    });
+// Associar função ao botão de simular
+document.getElementById("calculate").addEventListener("click", function() {
+    LoanSimulator.calcular();
 });
-
-
-//utilizei algumas referencias para compor o codigo em sites como
-https://www.w3schools.com, e series de videos como: https://www.youtube.com/watch?v=aRergQRF3lw
