@@ -1,85 +1,64 @@
-// Objeto para controlar o simulador de empréstimo
 const LoanSimulator = {
-    // Método para validar se um valor é numérico
     isNumber(value) {
-        return !isNaN(parseFloat(value)) && isFinite(value);
+      return !isNaN(parseFloat(value)) && isFinite(value);
     },
-
-    // Método para obter os valores do formulário
+  
     obterValoresFormulario() {
-        const montanteElement = document.getElementById("amount");
-        const taxaJurosElement = document.getElementById("interestRate");
-        const tempoEmprestimoElement = document.getElementById("loanTerm");
-
-        const montante = parseFloat(montanteElement.value);
-        const taxaJuros = parseFloat(taxaJurosElement.value) / 100;
-        const tempoEmprestimo = parseInt(tempoEmprestimoElement.value);
-
-        return {
-            montante,
-            taxaJuros,
-            tempoEmprestimo,
-        };
+      const montante = parseFloat(document.getElementById("amount").value);
+      const taxaJuros = parseFloat(document.getElementById("interestRate").value) / 100;
+      const tempoEmprestimo = parseInt(document.getElementById("loanTerm").value);
+  
+      return { montante, taxaJuros, tempoEmprestimo };
     },
-
-    // Método para calcular as parcelas simples
-    calcularParcelaSimples(montante, taxaJuros, tempoEmprestimo) {
-        return montante * (taxaJuros * Math.pow((1 + taxaJuros), tempoEmprestimo)) / (Math.pow((1 + taxaJuros), tempoEmprestimo) - 1);
+  
+    calcularParcelas(montante, taxaJuros, tempoEmprestimo) {
+      const taxa = taxaJuros / 12; // Taxa de juros mensal
+      const parcela = montante * taxa / (1 - Math.pow(1 + taxa, -tempoEmprestimo)); // Fórmula para cálculo da parcela
+      return parcela;
     },
-
-    // Método para exibir os resultados na tela
-    exibirResultados(parcelasSimples, montante, taxaJuros, tempoEmprestimo) {
-        const resultadoElement = document.getElementById("result");
-
-        resultadoElement.innerHTML = "";
-
-        // Informações gerais
-        const informacoesElement = document.createElement("div");
-        informacoesElement.classList.add("informacoes");
-
-        const montanteLabel = document.createElement("span");
-        montanteLabel.textContent = `Montante: R$ ${montante.toFixed(2)}`;
-
-        const taxaJurosLabel = document.createElement("span");
-        taxaJurosLabel.textContent = `Taxa de Juros: ${(taxaJuros * 100).toFixed(2)}%`;
-
-        const tempoEmprestimoLabel = document.createElement("span");
-        tempoEmprestimoLabel.textContent = `Tempo do Empréstimo: ${tempoEmprestimo} meses`;
-
-        informacoesElement.appendChild(montanteLabel);
-        informacoesElement.appendChild(taxaJurosLabel);
-        informacoesElement.appendChild(tempoEmprestimoLabel);
-
-        resultadoElement.appendChild(informacoesElement);
-
-        // Exibir resultado das parcelas simples
-        resultadoElement.appendChild(document.createTextNode("**Parcelas simples:**"));
-        const tabelaSimples = document.createElement("table");
-        tabelaSimples.classList.add("table");
-        for (let i = 1; i <= tempoEmprestimo; i++) {
-            const linha = document.createElement("tr");
-            const coluna = document.createElement("td");
-            const parcela = this.calcularParcelaSimples(montante, taxaJuros, i);
-            coluna.textContent = `Parcela ${i}: R$ ${parcela.toFixed(2)}`;
-            linha.appendChild(coluna);
-            tabelaSimples.appendChild(linha);
-        }
-        resultadoElement.appendChild(tabelaSimples);
+  
+    exibirResultados(parcela, montante, taxaJuros, tempoEmprestimo) {
+      const resultadoElement = document.getElementById("loan-result");
+      resultadoElement.innerHTML = "";
+  
+      const informacoesElement = document.createElement("div");
+      informacoesElement.classList.add("informacoes");
+  
+      const montanteLabel = document.createElement("span");
+      montanteLabel.textContent = `Montante: R$ ${montante.toFixed(2)}`;
+  
+      const taxaJurosLabel = document.createElement("span");
+      taxaJurosLabel.textContent = `Taxa de Juros: ${(taxaJuros * 100).toFixed(2)}%`;
+  
+      const tempoEmprestimoLabel = document.createElement("span");
+      tempoEmprestimoLabel.textContent = `Tempo do Empréstimo: ${tempoEmprestimo} meses`;
+  
+      informacoesElement.appendChild(montanteLabel);
+      informacoesElement.appendChild(taxaJurosLabel);
+      informacoesElement.appendChild(tempoEmprestimoLabel);
+  
+      resultadoElement.appendChild(informacoesElement);
+  
+      resultadoElement.appendChild(document.createTextNode("**Parcelas:**"));
+      const tabelaParcelas = document.createElement("table");
+      tabelaParcelas.classList.add("table");
+      for (let i = 1; i <= tempoEmprestimo; i++) {
+        const linha = document.createElement("tr");
+        const coluna = document.createElement("td");
+        coluna.textContent = `Parcela ${i}: R$ ${parcela.toFixed(2)}`;
+        linha.appendChild(coluna);
+        tabelaParcelas.appendChild(linha);
+      }
+      resultadoElement.appendChild(tabelaParcelas);
     },
-
-    // Função principal para calcular e exibir os resultados
+  
     calcular() {
-        const { montante, taxaJuros, tempoEmprestimo } = this.obterValoresFormulario();
-        const parcelasSimples = [];
-        for (let i = 1; i <= tempoEmprestimo; i++) {
-            const parcela = this.calcularParcelaSimples(montante, taxaJuros, i);
-            parcelasSimples.push(parcela);
-        }
-        this.exibirResultados(parcelasSimples, montante, taxaJuros, tempoEmprestimo);
+      const { montante, taxaJuros, tempoEmprestimo } = this.obterValoresFormulario();
+      const parcela = this.calcularParcelas(montante, taxaJuros, tempoEmprestimo);
+      this.exibirResultados(parcela, montante, taxaJuros, tempoEmprestimo);
     }
-};
-
-// Associar função ao botão de simular
-document.getElementById("calculate").addEventListener("click", function() {
+  };
+  
+  document.getElementById("calculate").addEventListener("click", function() {
     LoanSimulator.calcular();
-});
+  });
