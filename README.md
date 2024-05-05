@@ -18,6 +18,5 @@ Funções Matemáticas: Cálculos matemáticos para determinar o valor das parce
 Template Strings: Utilizadas para formatar e exibir os resultados de forma dinâmica no HTML.
 
 
-Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para relatar bugs, sugerir novos recursos ou enviar um pull request.
 
