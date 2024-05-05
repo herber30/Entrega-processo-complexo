@@ -1,34 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: radial-gradient(circle, rgba(88, 223, 154, 1) 0%, rgba(106, 132, 227, 1) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: radial-gradient(circle, rgba(88, 223, 154, 1) 0%, rgba(106, 132, 227, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
-  margin: 1rem;
-  width: 90%;
-  max-width: 400px;
-  background-color: rgba(135, 103, 152, 0.7);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.form {
-  width: 100%;
+    margin: 1rem;
+    width: 90%;
+    max-width: 400px;
+    background: rgb(55,65,198);
+    background: radial-gradient(circle, rgba(55,65,198,0.9410071942446043) 0%, rgba(161,116,190,1) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.7rem;
 }
 
 .input-group label {
@@ -37,30 +34,47 @@ body {
 }
 
 .input-group input {
-  padding: 0.75rem;
+  padding: 0.95rem;
   border: 1px solid #567ce5;
-  border-radius: 5px;
+  border-radius: 15px;
+  width: 70%;
 }
 
+
 .button {
-  padding: 0.75rem 2rem;
-  background: linear-gradient(to right, #7589F5, #0093E9);
+  padding: 1rem 2.5rem; 
+  background: rgb(34,171,195);
+  background: linear-gradient(0deg, rgba(34,171,195,1) 0%, rgba(79,42,242,1) 52%);
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out; 
 }
 
 .button:hover {
-  transform: scale(1.02);
-  background: linear-gradient(to right, #8dbabf, #24a0ed);
+  transform: scale(1.1);
 }
 
-.result {
+
+#result {
   margin-top: 1.5rem;
   padding: 1rem;
-  background-color: #f9f9f9;
+  background: rgb(140,232,249);
+  background: linear-gradient(0deg, rgba(140,232,249,0.9035971223021583) 28%, rgba(169,150,252,0.43453237410071943) 100%);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+#result table {
+  width: 100%;
+}
+
+#result th {
+  text-align: center;
+}
+
+#result td {
+  text-align: center;
+}
+
