@@ -15,8 +15,8 @@ body {
   margin: 1rem;
   width: 90%;
   max-width: 400px;
-  background: rgb(140,232,249);
-  background: linear-gradient(0deg, rgba(140,232,249,0.4935251798561151) 28%, rgba(169,150,252,0.43453237410071943) 100%);
+  background: rgb(140, 232, 249);
+  background: linear-gradient(0deg, rgba(140, 232, 249, 0.4935251798561151) 28%, rgba(169, 150, 252, 0.43453237410071943) 100%);
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
