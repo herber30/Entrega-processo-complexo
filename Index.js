@@ -114,6 +114,6 @@ const LoanSimulator = {
     }
 };
 
-document.getElementById("calculate").addEventListener("click", function() {
+document.getElementById("calculate").addEventListener("click", function () {
     LoanSimulator.calcular();
 });
